@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+	<link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+	<form action="{% url 'views' %}"  method="post">
+		 {% csrf_token %}
+		 
+		<div class="meeting">
+        <label form="desc">Что вы хотите сделать?</label><br><br>
+		</div>		
+		
+		<input type="submit" value="Посмотреть базу" name="get">
+		<input type="submit" value="Добавить в базу" name="add">
+		
+		
+	</form>
+
+</body>
+</html>

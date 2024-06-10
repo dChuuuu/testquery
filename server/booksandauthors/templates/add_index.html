@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+	<link rel="stylesheet" href="/static/style_add.css">
+</head>
+
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+	<form action="{% url 'add' %}"  method="post">
+		 {% csrf_token %}
+		 
+		<div class="choice">
+        <label form="desc">Вы хотите добавить автора или книгу?</label><br><br>
+		</div>		
+		
+		<input type="submit" value="Автора" name="author">
+		<input type="submit" value="Книгу" name="book">
+		
+		
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    background-color: lavenderblush;
+    }
+
+.meeting {
+    font-size: 50px;
+	font-family: Optima ,sans-serif;
+    }
+	
+input[type='submit'] {
+	font-size: 25px;
+	font-family: Optima ,sans-serif;
+	background: #FFFFFF;
+	border-radius: 15px
+}

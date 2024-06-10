@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    background-color: lavenderblush;
+    }
+
+.author_data_label {
+    font-size: 50px;
+	font-family: "Lucida Handwriting", cursive;
+    }
+	
+input[type='submit'] {
+	font-size: 25px;
+	font-family: "Lucida Handwriting", cursive;
+	background: #FFFFFF;
+	border-radius: 15px
+}
