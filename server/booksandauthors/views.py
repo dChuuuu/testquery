@@ -19,9 +19,6 @@ def add_author(request):
 def add(request):
     if request.method == 'POST':
 
-        #author_name = None
-        #birth_date = None
-        #city = None
         values = ('author', 'book')
         value = ''.join(tuple(filter(lambda value: value in request.POST.keys(), values)))
         if value in values:
