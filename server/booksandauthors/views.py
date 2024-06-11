@@ -11,9 +11,22 @@ def add_author(request):
         birth_date = request.POST.get('birth_date')
         country = request.POST.get('country')
         m.BooksManager.add_author(m.Authors, author_name=author_name, birth_date=birth_date, country=country)
-        return HttpResponse(render(request, template_name='add_author_success.html'))
+        return HttpResponse(render(request, template_name='success.html'))
 
     return HttpResponse(render(request, template_name='add_author.html'))
+
+
+def add_book(request):
+    if request.method == 'POST':
+        book_name = request.POST.get('book_name')
+        author_id = request.POST.get('author_id')
+        m.BooksManager.add_book(m.Books, book_name=book_name, author_id=author_id)
+        return HttpResponse(render(request, template_name='success.html'))
+
+    options = m.BooksManager.get_authors(m.Authors)
+    context = {'options': options}
+
+    return HttpResponse(render(request, template_name='add_book.html', context=context))
 
 
 def add(request):
@@ -22,7 +35,9 @@ def add(request):
         values = ('author', 'book')
         value = ''.join(tuple(filter(lambda value: value in request.POST.keys(), values)))
         if value in values:
-            return redirect(add_author)
+            if value == 'author':
+                return redirect(add_author)
+            return redirect(add_book)
         
     return HttpResponse(render(request, template_name='add_index.html'))
 

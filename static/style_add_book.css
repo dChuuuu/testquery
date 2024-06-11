@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+    background-color: lavenderblush;
+    }
+
+	
+input[type='text'] {
+	font-size: 25px;
+	font-family: Optima ,sans-serif;
+	#background: #FFFFFF;
+	#border-radius: 15px
+}
+
+
+input[type='submit'] {
+	font-size: 25px;
+	font-family: Optima ,sans-serif;
+	background: #FFFFFF;
+	border-radius: 15px
+}
+
+.book_data { font-size: 25px;
+font-family: Optima ,sans-serif;}
+
+select { width: 400px;
+		 font-size: 25px;
+		 font-family: Optima ,sans-serif;
+		 background: #FFFFFF;
+		 }
+

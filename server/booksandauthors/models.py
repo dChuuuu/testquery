@@ -11,7 +11,19 @@ class BooksManager(models.Manager):
         try:
             migration = Authors.objects.get(author_name=author_name)
         except ObjectDoesNotExist:
-            migration = Authors(author_name=author_name, birth_date=birth_date, country=country)
+            migration = Authors(author_name=author_name.title(), birth_date=birth_date, country=country)
+            migration.save()
+
+    def get_authors(self):
+        return Authors.objects.values_list('id', 'author_name').order_by('author_name')
+
+    def add_book(self, book_name, author_id):
+        try:
+            migration = Books.objects.get(book_name=book_name)
+        except ObjectDoesNotExist:
+            author_name = Authors.objects.get(id=author_id)
+
+            migration = Books(book_name=book_name, author_name=author_name)
             migration.save()
 
 
