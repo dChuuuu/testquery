@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+	<link rel="stylesheet" href="/static/style_add_book.css">
+	
+</head>
+
+<body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+	<form action="{% url 'view_book' %}"  method="post">
+		 {% csrf_token %}		
+		<div class="book_data">
+		Имя автора:<br><br>
+		
+		<select id="author_name" name="author_id">
+		
+			{% for option in options %}
+			
+				<option value="{{ option.0 }}">{{ option.1 }}</option>
+			
+			{% endfor %}
+			
+		</select><br><br>
+		
+		<input type="submit" name="book_data_submit" value="Отобразить книги">
+		</div>
+		
+		
+	</form>
+
+</body>
+</html>

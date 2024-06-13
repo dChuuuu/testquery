@@ -42,6 +42,19 @@ def add(request):
     return HttpResponse(render(request, template_name='add_index.html'))
 
 
+def view_book_result(request):
+    pass
+
+
+def view_book(request):
+    if request.method == 'POST':
+        author_id = request.POST.get('author_id')
+        return redirect(view_book_result)
+    options = m.BooksManager.get_authors(m.Authors)
+    context = {'options': options}
+    return HttpResponse(render(request, template_name='view_book_index.html', context=context))
+
+
 def view(request):
 
     if request.method == 'GET':
@@ -50,7 +63,7 @@ def view(request):
 
     elif request.method == 'POST':
         if request.POST.get('get'):
-            return HttpResponse('На стадии разработки')
+            return redirect(view_book)
         elif request.POST.get('add'):
             return redirect(add)
         else:
