@@ -26,6 +26,12 @@ class BooksManager(models.Manager):
             migration = Books(book_name=book_name, author_name=author_name)
             migration.save()
 
+    def get_book(self, author_id):
+        try:
+            return Books.objects.filter(author_name_id=author_id).values_list('book_name')
+        except ObjectDoesNotExist:
+            return '4022222'
+
 
 class Books(models.Model):
     class Meta:

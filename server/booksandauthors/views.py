@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from booksandauthors import models as m
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpRequest, HttpResponse, HttpResponseNotFound
 # Create your views here.
 
@@ -43,12 +43,16 @@ def add(request):
 
 
 def view_book_result(request):
-    pass
+    author_id = request.session['author_id']
+    options = m.BooksManager.get_book(m.Authors, author_id)
+    context = {'options': options}
+    return HttpResponse(render(request, template_name='view_book_result.html', context=context))
 
 
 def view_book(request):
     if request.method == 'POST':
         author_id = request.POST.get('author_id')
+        request.session['author_id'] = author_id
         return redirect(view_book_result)
     options = m.BooksManager.get_authors(m.Authors)
     context = {'options': options}

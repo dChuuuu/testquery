@@ -26,5 +26,6 @@ urlpatterns = [
     path('add/', views.add, name='add'),
     path('add_author/', views.add_author, name='add_author'),
     path('add_book/', views.add_book, name='add_book'),
-    path('view_book/', views.view_book, name='view_book')
+    path('view_book/', views.view_book, name='view_book'),
+    path('result/', views.view_book_result, name='view_book_result')
 ]
