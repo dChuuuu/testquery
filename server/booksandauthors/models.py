@@ -27,7 +27,7 @@ class BooksManager(models.Manager):
             migration.save()
 
     def get_book(self, author_id):
-        return Books.objects.filter(author_name_id=author_id).values_list('book_name')
+        return Books.objects.select_related(author_id).values_list('book_name')
 
 
 
